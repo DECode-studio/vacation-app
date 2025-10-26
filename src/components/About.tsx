@@ -23,12 +23,12 @@ const About = () => {
         <div className="grid gap-14 lg:grid-cols-[0.9fr_1fr] lg:items-center">
           <div
             className={cn(
-              "relative isolate aspect-[10/13] overflow-hidden rounded-[2.5rem] reveal-child",
+              "relative isolate aspect-10/13 overflow-hidden rounded-[2.5rem] reveal-child",
               isVisible && "is-visible",
             )}
             style={{ transitionDelay: isVisible ? "120ms" : undefined }}
           >
-            <div className="absolute inset-0 z-10 bg-gradient-to-br from-brand-dark/50 to-transparent" />
+            <div className="absolute inset-0 z-10 bg-linear-to-br from-brand-dark/50 to-transparent" />
             <Image
               fill
               src="https://images.prismic.io/ulaman/Zpcs2R5LeNNTxOAv_ulaman.jpg?auto=format,compress"
