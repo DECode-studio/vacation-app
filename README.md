@@ -1,5 +1,7 @@
 ## Vacation App – Ulaman Eco Luxury Resort
 
+> Crafted by **Nur Wahid Azhar** · nur.wahid.azhar@gmail.com · [Portfolio](https://porto-ku.excitech.id/user?id=nur.wahid.azhar)
+
 Next.js 16 single-page marketing experience for Ulaman Eco Luxury Resort. The site layers cinematic hero video, curated villa highlights, wellness programming, and dining showcases with a high-end typographic system inspired by resort collateral.
 
 ### Tech Stack
@@ -123,7 +125,3 @@ src/
   2. Deploy on Vercel (attach the live link).
   3. Keep this README updated with setup instructions + answers.
   4. If a CMS is added, include admin credentials for reviewers and link to API docs.
-
----
-
-Questions answered inline above per requirement. Let me know if you need this in a separate document or want expanded deployment instructions.
