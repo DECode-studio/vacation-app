@@ -1,26 +1,255 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Americana";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/americana/Americana-BT.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Basis Grotesque Pro";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/fonts/basis/light/BasisGrotesquePro-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Basis Grotesque Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/basis/regular/BasisGrotesquePro-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Basis Grotesque Pro";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/basis/bold/BasisGrotesquePro-Bold.woff2") format("woff2");
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 35 35.3% 93.3%;
+  --foreground: 126 8.8% 22.4%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 126 8.8% 22.4%;
+
+  --popover: 35 35.3% 93.3%;
+  --popover-foreground: 126 8.8% 22.4%;
+
+  --brand: 39.2 51.5% 53.9%;
+  --brand-dark: 126 8.8% 22.4%;
+  --brand-light: 35 35.3% 93.3%;
+  --brand-muted: 73.5 32% 81%;
+  --brand-accent: 26.5 23% 63.3%;
+  --brand-cream: 35 35.3% 93.3%;
+  --brand-cream-dark: 26.5 23% 63.3%;
+
+  --primary: var(--brand);
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 126 8.8% 22.4%;
+  --secondary-foreground: 35 35.3% 93.3%;
+
+  --muted: 73.5 32% 81%;
+  --muted-foreground: 126 8.8% 32%;
+
+  --accent: var(--brand-accent);
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 72% 52%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 120 7.7% 82.2%;
+  --input: 120 7.7% 82.2%;
+  --ring: var(--brand);
+
+  --radius: 1.25rem;
+
+  --sidebar-background: 35 35.3% 93.3%;
+  --sidebar-foreground: 126 8.8% 22.4%;
+  --sidebar-primary: var(--brand);
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 73.5 32% 81%;
+  --sidebar-accent-foreground: 126 8.8% 22.4%;
+  --sidebar-border: 120 7.7% 82.2%;
+  --sidebar-ring: var(--brand);
+
+  --font-body: "Basis Grotesque Pro", "Inter", "Helvetica Neue", Arial,
+    sans-serif;
+  --font-heading: "Americana", "Times New Roman", serif;
+}
+
+.dark {
+  --background: 126 8.8% 12%;
+  --foreground: 35 35.3% 93.3%;
+
+  --card: 126 8.8% 18%;
+  --card-foreground: 35 35.3% 93.3%;
+
+  --popover: 126 8.8% 18%;
+  --popover-foreground: 35 35.3% 93.3%;
+
+  --muted: 126 8.8% 24%;
+  --muted-foreground: 35 35.3% 93.3%;
+
+  --brand-light: 126 8.8% 18%;
+  --brand-muted: 126 8.8% 24%;
+
+  --border: 126 8.8% 28%;
+  --input: 126 8.8% 28%;
+}
+
+html {
+  font-size: 3.86vw;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 2.083vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 1.562vw;
+  }
+}
+
+@media (min-width: 1280px) {
+  html {
+    font-size: 1.11vw;
+  }
+}
+
+@media (min-width: 1536px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: hsl(var(--foreground));
+}
+
+p,
+li {
+  color: hsl(var(--foreground));
+  font-weight: 300;
+  letter-spacing: 0.015em;
+}
+
+strong {
+  font-weight: 500;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+.app-container {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-10;
+}
+
+.ui-underline-anim {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.ui-underline-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.ui-underline-anim:hover::after,
+.ui-underline-anim:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.reveal-element {
+  opacity: 0;
+  transform: translate3d(0, 72px, 0);
+  filter: blur(12px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal-element.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
+}
+
+.reveal-child {
+  opacity: 0;
+  transform: translate3d(0, 48px, 0);
+  filter: blur(8px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal-child.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  filter: blur(0);
 }
